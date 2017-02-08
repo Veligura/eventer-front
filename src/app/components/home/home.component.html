@@ -1,17 +1,32 @@
+<div class="container">
+
 <div class="row">
-  <div class="col-md-12 center">
+  <div class="col-sm-10 ">
     <h1>Eventer</h1>
   </div>
-</div>
-<div class="row">
-
-  <div class="col-md-12 image"></div>
+ 
 </div>
 
+<app-form (form)="userForm($event)" [eventForEdit]="event" *ngIf="editable" ></app-form>
 
-<!--<form class="well"
-<div class="form-group">
-<input type="text" class="form-control" placeholder="Event title">
-<input type="text" class="form-control" placeholder="Event title">
+
+
+
+<div class="row" *ngIf='!editable'> 
+<div class="col-sm-10">
+<h2>{{event.title}}</h2>
+<h3>{{event.author}}</h3>
+<h3>{{event.description}}</h3>
+
 </div>
-</form>-->
+
+<div class="col-sm-2 publishbutton">
+  <button type="button" (click)="edit()" class="btn btn-success  btn-lg" >Edit</button>
+</div>
+
+
+</div>
+
+
+
+</div>

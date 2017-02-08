@@ -1,0 +1,42 @@
+<div class="row">
+<form  (ngSubmit)="submitEvent(event.value)" [formGroup]="event" >
+  <div class="col-sm-10" >
+<div class="form-group"  class="authorInput">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" formControlName="title"  placeholder="Title" >
+     <div class="error bg-danger" *ngIf="event.get('title').hasError('required') && event.get('title').touched">
+       Title is required 
+      </div>
+       <div class="error bg-danger" *ngIf="event.get('title').hasError('minlength') && event.get('title').touched">
+        Minimum of 2 characters
+      </div>
+  </div>
+  <div class="form-group" class="authorInput">
+    <label for="author">Author</label>
+    <input type="text" class="form-control" placeholder="Title" formControlName="author">
+    <div class="error bg-danger" *ngIf="event.get('author').hasError('required') && event.get('author').touched">
+       Title is required 
+      </div>
+       <div class="error bg-danger" *ngIf="event.get('author').hasError('minlength') && event.get('author').touched">
+        Minimum of 2 characters
+      </div>
+  </div>
+ <div class="form-group">
+    <label for="description">Desription</label>
+    <textarea type="text" class="form-control" rows="3" formControlName= "description" id="exampleInputPassword1" placeholder="Description"></textarea>
+    <div class="error bg-danger" *ngIf="event.get('description').hasError('required') && event.get('description').touched">
+       Title is required 
+      </div>
+       <div class="error bg-danger" *ngIf="event.get('description').hasError('minlength') && event.get('description').touched">
+        Minimum of 2 characters
+      </div>
+  </div>
+</div>
+<div class="col-sm-2 publishbutton" >
+    <button type="submit" [disabled]="event.invalid" class="btn btn-success  btn-lg" >Publish</button>
+</div>
+
+</form>
+
+</div>
+
